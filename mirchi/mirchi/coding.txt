@@ -1,0 +1,818 @@
+>> from sklearn.model_selection import train_test_split
+import numpy as np
+import matplotlib.pyplot as plt
+>>> xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size = 0.25, random_state = 47)
+>>> xtrain
+[array([[[102, 111, 108],
+        [104, 115, 112],
+        [106, 117, 114],
+        ...,
+        [112, 122, 116],
+        [110, 120, 114],
+        [109, 120, 112]],
+
+       [[102, 113, 110],
+        [104, 115, 112],
+        [105, 116, 113],
+        ...,
+        [111, 120, 117],
+        [109, 119, 113],
+        [111, 121, 115]],
+
+       [[101, 112, 109],
+        [103, 114, 111],
+        [105, 116, 113],
+        ...,
+        [113, 121, 117],
+        [111, 121, 115],
+        [110, 120, 114]],
+
+       ...,
+
+       [[153, 170, 166],
+        [153, 174, 166],
+        [154, 175, 167],
+        ...,
+        [179, 188, 185],
+        [179, 188, 185],
+        [176, 185, 182]],
+
+       [[155, 172, 168],
+        [155, 172, 168],
+        [154, 171, 167],
+        ...,
+        [178, 187, 184],
+        [178, 186, 185],
+        [176, 186, 180]],
+
+       [[155, 172, 166],
+        [156, 173, 169],
+        [158, 175, 171],
+        ...,
+        [178, 187, 184],
+        [179, 188, 185],
+        [179, 189, 183]]], dtype=uint8), array([[[155, 158, 161],
+        [159, 162, 166],
+        [161, 164, 168],
+        ...,
+        [170, 166, 172],
+        [171, 167, 172],
+        [170, 171, 173]],
+
+       [[155, 157, 161],
+        [158, 161, 165],
+        [158, 161, 165],
+        ...,
+        [171, 167, 172],
+        [170, 166, 171],
+        [166, 168, 169]],
+
+       [[158, 161, 165],
+        [159, 162, 166],
+        [160, 163, 167],
+        ...,
+        [173, 169, 174],
+        [170, 166, 171],
+        [168, 170, 171]],
+
+       ...,
+
+       [[148, 148, 148],
+        [146, 146, 146],
+        [145, 148, 153],
+        ...,
+        [208, 205, 200],
+        [210, 206, 201],
+        [209, 206, 201]],
+
+       [[147, 149, 149],
+        [145, 147, 147],
+        [146, 149, 153],
+        ...,
+        [208, 205, 200],
+        [208, 205, 200],
+        [208, 205, 200]],
+
+       [[148, 148, 148],
+        [147, 147, 147],
+        [144, 149, 148],
+        ...,
+        [209, 206, 201],
+        [211, 208, 203],
+        [208, 205, 200]]], dtype=uint8), array([[[169, 174, 177],
+        [172, 177, 180],
+        [170, 175, 178],
+        ...,
+        [200, 199, 201],
+        [200, 200, 202],
+        [201, 200, 202]],
+
+       [[171, 177, 179],
+        [167, 172, 175],
+        [171, 176, 179],
+        ...,
+        [200, 199, 201],
+        [201, 200, 202],
+        [201, 200, 202]],
+
+       [[170, 175, 178],
+        [167, 172, 175],
+        [169, 175, 178],
+        ...,
+        [200, 199, 201],
+        [202, 201, 203],
+        [202, 201, 203]],
+
+       ...,
+
+       [[143, 147, 152],
+        [141, 145, 150],
+        [146, 150, 155],
+        ...,
+        [144, 144, 150],
+        [146, 146, 152],
+        [144, 144, 150]],
+
+       [[142, 146, 151],
+        [144, 148, 153],
+        [144, 148, 153],
+        ...,
+        [142, 145, 150],
+        [145, 145, 151],
+        [145, 145, 151]],
+
+       [[141, 145, 150],
+        [146, 150, 155],
+        [142, 146, 151],
+        ...,
+        [142, 144, 150],
+        [143, 146, 151],
+        [140, 143, 148]]], dtype=uint8), array([[[165, 179, 175],
+        [164, 178, 174],
+        [163, 178, 173],
+        ...,
+        [148, 159, 156],
+        [149, 160, 157],
+        [148, 159, 156]],
+
+       [[166, 180, 176],
+        [167, 181, 177],
+        [165, 179, 175],
+        ...,
+        [151, 162, 160],
+        [150, 161, 158],
+        [147, 158, 155]],
+
+       [[167, 181, 177],
+        [166, 180, 176],
+        [165, 180, 176],
+        ...,
+        [147, 158, 155],
+        [149, 160, 157],
+        [147, 158, 155]],
+
+       ...,
+
+       [[172, 179, 174],
+        [173, 180, 175],
+        [173, 180, 175],
+        ...,
+        [152, 162, 156],
+        [151, 162, 156],
+        [151, 162, 156]],
+
+       [[172, 179, 174],
+        [172, 179, 174],
+        [172, 179, 174],
+        ...,
+        [153, 163, 157],
+        [154, 164, 158],
+        [151, 161, 155]],
+
+       [[170, 177, 172],
+        [170, 177, 172],
+        [171, 178, 173],
+        ...,
+        [152, 162, 156],
+        [151, 161, 156],
+        [150, 160, 154]]], dtype=uint8), array([[[187, 192, 193],
+        [187, 191, 192],
+        [188, 192, 193],
+        ...,
+        [173, 173, 173],
+        [175, 173, 173],
+        [173, 171, 171]],
+
+       [[189, 194, 195],
+        [189, 193, 194],
+        [186, 191, 192],
+        ...,
+        [175, 173, 173],
+        [174, 172, 172],
+        [176, 173, 177]],
+
+       [[188, 193, 194],
+        [187, 191, 192],
+        [186, 191, 192],
+        ...,
+        [176, 174, 174],
+        [173, 173, 173],
+        [174, 173, 177]],
+
+       ...,
+
+       [[179, 183, 184],
+        [179, 183, 184],
+        [180, 184, 185],
+        ...,
+        [151, 152, 156],
+        [151, 153, 154],
+        [153, 155, 156]],
+
+       [[178, 183, 183],
+        [181, 185, 186],
+        [180, 184, 185],
+        ...,
+        [148, 150, 151],
+        [152, 154, 155],
+        [147, 149, 150]],
+
+       [[178, 182, 183],
+        [179, 183, 184],
+        [182, 187, 186],
+        ...,
+     …
+>>> import numpy as np
+>>> x=np.array(x).reshape(1000,120000)
+x
+Traceback (most recent call last):
+  File "<pyshell>", line 1, in <module>
+ValueError: cannot reshape array of size 40440000 into shape (1000,120000)
+>>> x=np.array(x).reshape(337,120000)
+x
+array([[169, 184, 180, ..., 132, 142, 136],
+       [131, 142, 139, ..., 173, 183, 177],
+       [162, 165, 169, ..., 192, 190, 189],
+       ...,
+       [143, 160, 156, ..., 122, 131, 128],
+       [160, 174, 168, ..., 160, 177, 173],
+       [138, 154, 147, ..., 121, 131, 125]], dtype=uint8)
+>>> print(np.array(xtrain).shape) 
+(252, 200, 200, 3)
+>>> print(np.array(ytest).shape)
+(85,)
+>>> x1=np.array(x).shape
+>>> x1
+(337, 120000)
+>>> y1=np.array(y).shape
+y1
+(337,)
+>>> d=np.array(xtrain).reshape(252,120000)
+d
+array([[102, 111, 108, ..., 179, 189, 183],
+       [155, 158, 161, ..., 208, 205, 200],
+       [169, 174, 177, ..., 140, 143, 148],
+       ...,
+       [169, 173, 174, ..., 115, 114, 123],
+       [159, 163, 157, ..., 123, 124, 120],
+       [154, 164, 158, ..., 199, 202, 200]], dtype=uint8)
+>>> xtest
+[array([[[150, 170, 165],
+        [149, 169, 164],
+        [151, 171, 166],
+        ...,
+        [ 47,  32,  46],
+        [ 46,  29,  47],
+        [ 48,  32,  49]],
+
+       [[149, 172, 164],
+        [152, 171, 166],
+        [150, 170, 165],
+        ...,
+        [ 47,  32,  46],
+        [ 48,  33,  50],
+        [ 44,  30,  47]],
+
+       [[150, 173, 165],
+        [151, 174, 166],
+        [150, 173, 165],
+        ...,
+        [ 57,  42,  56],
+        [ 52,  37,  52],
+        [ 52,  36,  53]],
+
+       ...,
+
+       [[163, 175, 169],
+        [163, 175, 169],
+        [163, 175, 169],
+        ...,
+        [119, 129, 123],
+        [120, 130, 124],
+        [122, 129, 124]],
+
+       [[161, 174, 166],
+        [159, 174, 166],
+        [159, 176, 167],
+        ...,
+        [120, 130, 124],
+        [118, 127, 124],
+        [118, 128, 122]],
+
+       [[158, 174, 166],
+        [159, 173, 165],
+        [161, 175, 166],
+        ...,
+        [118, 129, 121],
+        [116, 126, 120],
+        [116, 127, 119]]], dtype=uint8), array([[[140, 154, 150],
+        [142, 156, 152],
+        [141, 155, 151],
+        ...,
+        [136, 145, 142],
+        [132, 142, 136],
+        [134, 141, 136]],
+
+       [[139, 154, 149],
+        [139, 153, 149],
+        [142, 156, 152],
+        ...,
+        [135, 144, 141],
+        [133, 143, 137],
+        [133, 140, 135]],
+
+       [[138, 152, 148],
+        [141, 155, 151],
+        [142, 156, 152],
+        ...,
+        [133, 142, 139],
+        [133, 143, 137],
+        [133, 143, 137]],
+
+       ...,
+
+       [[165, 180, 176],
+        [164, 179, 175],
+        [165, 180, 176],
+        ...,
+        [165, 175, 169],
+        [163, 173, 167],
+        [161, 171, 165]],
+
+       [[164, 179, 175],
+        [163, 178, 175],
+        [163, 178, 174],
+        ...,
+        [165, 175, 168],
+        [165, 175, 169],
+        [161, 171, 165]],
+
+       [[165, 180, 176],
+        [164, 179, 175],
+        [164, 179, 175],
+        ...,
+        [166, 176, 170],
+        [163, 174, 167],
+        [160, 171, 163]]], dtype=uint8), array([[[149, 154, 157],
+        [148, 157, 155],
+        [153, 158, 157],
+        ...,
+        [179, 177, 177],
+        [178, 177, 177],
+        [178, 175, 175]],
+
+       [[149, 155, 158],
+        [150, 156, 155],
+        [152, 158, 157],
+        ...,
+        [178, 176, 176],
+        [181, 179, 179],
+        [180, 178, 178]],
+
+       [[152, 157, 160],
+        [150, 157, 156],
+        [151, 156, 155],
+        ...,
+        [179, 178, 178],
+        [177, 175, 175],
+        [180, 177, 177]],
+
+       ...,
+
+       [[117, 122, 125],
+        [126, 131, 132],
+        [116, 121, 122],
+        ...,
+        [124, 124, 130],
+        [119, 119, 125],
+        [121, 121, 127]],
+
+       [[122, 127, 130],
+        [119, 124, 125],
+        [130, 135, 136],
+        ...,
+        [109, 107, 113],
+        [121, 121, 127],
+        [120, 120, 126]],
+
+       [[113, 118, 121],
+        [122, 128, 129],
+        [120, 125, 126],
+        ...,
+        [117, 116, 125],
+        [115, 115, 121],
+        [118, 116, 122]]], dtype=uint8), array([[[166, 175, 172],
+        [163, 172, 169],
+        [162, 170, 169],
+        ...,
+        [164, 174, 168],
+        [173, 176, 174],
+        [163, 168, 166]],
+
+       [[163, 170, 170],
+        [165, 173, 172],
+        [165, 173, 172],
+        ...,
+        [166, 171, 169],
+        [170, 175, 173],
+        [169, 174, 172]],
+
+       [[170, 178, 175],
+        [166, 174, 173],
+        [171, 177, 176],
+        ...,
+        [164, 171, 166],
+        [167, 172, 169],
+        [163, 169, 164]],
+
+       ...,
+
+       [[123, 128, 129],
+        [120, 125, 128],
+        [125, 130, 131],
+        ...,
+        [131, 132, 136],
+        [135, 136, 140],
+        [129, 131, 132]],
+
+       [[125, 130, 133],
+        [123, 128, 131],
+        [125, 128, 132],
+        ...,
+        [124, 124, 128],
+        [125, 128, 132],
+        [117, 121, 122]],
+
+       [[111, 115, 116],
+        [123, 128, 131],
+        [124, 129, 132],
+        ...,
+        [126, 127, 130],
+        [127, 130, 134],
+        [117, 124, 127]]], dtype=uint8), array([[[114, 125, 121],
+        [114, 125, 121],
+        [115, 126, 123],
+        ...,
+        [117, 123, 118],
+        [117, 125, 118],
+        [114, 123, 113]],
+
+       [[113, 124, 121],
+        [115, 126, 123],
+        [115, 127, 121],
+        ...,
+        [117, 125, 120],
+        [116, 125, 115],
+        [114, 122, 112]],
+
+       [[115, 126, 123],
+        [116, 127, 124],
+        [116, 127, 124],
+        ...,
+        [118, 125, 120],
+        [116, 123, 118],
+        [115, 124, 115]],
+
+       ...,
+
+       [[148, 169, 161],
+        [153, 170, 166],
+        [155, 172, 168],
+        ...,
+        [164, 174, 168],
+        [163, 174, 166],
+        [160, 173, 165]],
+
+       [[148, 169, 161],
+        [149, 170, 162],
+        [154, 171, 167],
+        ...,
+        [164, 174, 168],
+        [164, 175, 167],
+        [159, 172, 164]],
+
+       [[149, 170, 162],
+        [150, 171, 163],
+        [155, 172, 168],
+        ...,
+     …
+>>> len(xtest)
+85
+>>> e=np.array(xtest).reshape(85,120000)
+e
+array([[150, 170, 165, ..., 116, 127, 119],
+       [140, 154, 150, ..., 160, 171, 163],
+       [149, 154, 157, ..., 118, 116, 122],
+       ...,
+       [141, 152, 149, ..., 171, 178, 173],
+       [107, 112, 113, ..., 186, 184, 183],
+       [143, 147, 148, ..., 181, 179, 179]], dtype=uint8)
+>>> print(np.asarray(d.shape))
+[   252 120000]
+>>> from sklearn.preprocessing import StandardScaler
+sc_x = StandardScaler()
+d= sc_x.fit_transform(d)#normalizing
+e = sc_x.transform(e)
+>>> from sklearn.linear_model import LogisticRegression
+model = LogisticRegression(random_state = 0)
+>>> model.fit(d, ytrain)
+C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\linear_model\_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+LogisticRegression(random_state=0)
+>>> from sklearn.linear_model import LogisticRegression
+
+# Create and fit a logistic regression model with increased max_iter
+model = LogisticRegression(random_state=0, max_iter=1000)  # Increase max_iter to 1000
+model.fit(xtrain, ytrain)
+Traceback (most recent call last):
+  File "<pyshell>", line 5, in <module>
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\linear_model\_logistic.py", line 1196, in fit
+    X, y = self._validate_data(
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\base.py", line 584, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\utils\validation.py", line 1106, in check_X_y
+    X = check_array(
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\utils\validation.py", line 915, in check_array
+    raise ValueError(
+ValueError: Found array with dim 4. LogisticRegression expected <= 2.
+>>> from sklearn.linear_model import LogisticRegression
+
+# Create and fit a logistic regression model with increased max_iter
+model = LogisticRegression(randomstate=0, max_iter=1000)  # Increase max_iter to 1000
+model.fit(xtrain, ytrain)
+Traceback (most recent call last):
+  File "<pyshell>", line 4, in <module>
+TypeError: __init__() got an unexpected keyword argument 'randomstate'
+>>> from sklearn.linear_model import LogisticRegression
+
+# Create and fit a logistic regression model with increased max_iter
+model = LogisticRegression(random_state=0, max_iter=1000)  # Increase max_iter to 1000
+model.fit(xtrain, ytrain)
+Traceback (most recent call last):
+  File "<pyshell>", line 5, in <module>
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\linear_model\_logistic.py", line 1196, in fit
+    X, y = self._validate_data(
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\base.py", line 584, in _validate_data
+    X, y = check_X_y(X, y, **check_params)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\utils\validation.py", line 1106, in check_X_y
+    X = check_array(
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\utils\validation.py", line 915, in check_array
+    raise ValueError(
+ValueError: Found array with dim 4. LogisticRegression expected <= 2.
+>>> from sklearn.linear_model import LogisticRegression
+
+# Create and fit a logistic regression model with increased max_iter
+model = LogisticRegression(random_state=0, max_iter=1000)
+>>> model.fit(d, ytrain)
+LogisticRegression(max_iter=1000, random_state=0)
+>>> y_pred=model.predict(e)
+y_pred
+array([2, 0, 1, 2, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 1,
+       1, 0, 1, 0, 1, 1, 1, 0, 1, 2, 0, 0, 0, 1, 0, 2, 1, 0, 1, 0, 0, 1,
+       0, 1, 1, 0, 0, 1, 2, 2, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 1, 2, 0, 0,
+       1, 0, 1, 0, 1, 2, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1])
+>>> from sklearn.metrics import confusion_matrix
+cm=confusion_matrix(ytest,y_pred)
+print("Confusion matrix:\n",cm)
+Confusion matrix:
+ [[42  1  5]
+ [ 0 27  0]
+ [ 5  0  5]]
+>>> from sklearn.metrics import accuracy_score
+print("Accuracy:",accuracy_score(ytest,y_pred))
+Accuracy: 0.8705882352941177
+>>> from sklearn.neighbors import KNeighborsClassifier
+knn=KNeighborsClassifier(n_neighbors=12)
+>>> knn.fit(d,ytrain)
+KNeighborsClassifier(n_neighbors=12)
+>>> y_pred = model.predict(e)
+y_pred
+array([2, 0, 1, 2, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 1,
+       1, 0, 1, 0, 1, 1, 1, 0, 1, 2, 0, 0, 0, 1, 0, 2, 1, 0, 1, 0, 0, 1,
+       0, 1, 1, 0, 0, 1, 2, 2, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 1, 2, 0, 0,
+       1, 0, 1, 0, 1, 2, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1])
+>>> print("predicted value for training value",knn.score(d,ytrain))
+print("predicted value for testing value",knn.score(e,ytest))
+print("Overall Accuracy:",knn.score(sc_x.transform(x),y))
+predicted value for training value 0.7777777777777778
+predicted value for testing value 0.6941176470588235
+Overall Accuracy: 0.7566765578635015
+>>> y_pred=knn.predict(e)
+y_pred
+array([2, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 2, 1, 0, 1, 1, 0, 2, 0, 0, 1, 1,
+       1, 1, 1, 0, 1, 1, 0, 0, 1, 2, 0, 0, 0, 1, 2, 0, 1, 0, 0, 0, 2, 1,
+       0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 2, 0, 0,
+       1, 0, 1, 0, 1, 2, 1, 0, 2, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1])
+>>> from sklearn.metrics import confusion_matrix
+knns=confusion_matrix(ytest,y_pred)
+print("Confusion matrix:\n",knns)
+Confusion matrix:
+ [[31 12  5]
+ [ 3 24  0]
+ [ 4  2  4]]
+>>> from sklearn.naive_bayes import GaussianNB
+nb = GaussianNB()
+>>> nb.fit(d,ytrain)
+GaussianNB()
+>>> import numpy as np
+print("Training Accuracy",nb.score(d,ytrain))
+print("Testing Accuracy",nb.score(e,ytest))
+print("Overall Accuracy:",nb.score(sc_x.transform(x),y))
+Training Accuracy 0.8452380952380952
+Testing Accuracy 0.788235294117647
+Overall Accuracy: 0.8308605341246291
+>>> y_pred=nb.predict(e)
+y_pred
+array([2, 0, 1, 2, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 1, 0, 0, 2, 0, 0, 0, 1,
+       1, 1, 1, 0, 0, 1, 0, 0, 1, 2, 0, 0, 0, 1, 2, 0, 1, 0, 0, 0, 2, 1,
+       0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 2, 0, 0,
+       1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1])
+>>> from sklearn.metrics import confusion_matrix
+nbb=confusion_matrix(ytest,y_pred)
+print("Confusion matrix:\n",nbb)
+Confusion matrix:
+ [[41  3  4]
+ [ 6 21  0]
+ [ 3  2  5]]
+>>> from sklearn import svm
+SVM= svm.SVC()
+>>> SVM.fit(d, ytrain)
+SVC()
+>>> print("Training Accuracy",SVM.score(d,ytrain))
+print("Testing Accuracy",SVM.score(e,ytest))
+print("Overall Accuracy:",SVM.score(sc_x.transform(x),y))
+Training Accuracy 0.9722222222222222
+Testing Accuracy 0.8823529411764706
+Overall Accuracy: 0.9495548961424333
+>>> y_pred=SVM.predict(e)
+y_pred
+array([2, 0, 1, 2, 0, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+       1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 1, 0, 0, 0, 0, 1,
+       0, 1, 1, 0, 0, 1, 0, 2, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 2, 0, 0,
+       1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1])
+>>> from sklearn.metrics import confusion_matrix
+SVMS=confusion_matrix(ytest,y_pred)
+print("Confusion matrix:\n",SVMS)
+Confusion matrix:
+ [[45  3  0]
+ [ 3 24  0]
+ [ 4  0  6]]
+>>> from sklearn.tree import DecisionTreeClassifier
+dtc=DecisionTreeClassifier()
+>>> print("Training Accuracy",dtc.score(d,ytrain))
+print("Testing Accuracy",dtc.score(e,ytest))
+print("Overall Accuracy:",dtc.score(sc_x.transform(x),y))
+Traceback (most recent call last):
+  File "<pyshell>", line 1, in <module>
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\base.py", line 668, in score
+    return accuracy_score(y, self.predict(X), sample_weight=sample_weight)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\tree\_classes.py", line 425, in predict
+    check_is_fitted(self)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\utils\validation.py", line 1390, in check_is_fitted
+    raise NotFittedError(msg % {"name": type(estimator).__name__})
+sklearn.exceptions.NotFittedError: This DecisionTreeClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+>>> print("Training Accuracy",dtc.score(d,ytrain))
+print("Testing Accuracy",dtc.score(e,ytest))
+print("Overall Accuracy:",dtc.score(sc_x.transform(x),y))
+Traceback (most recent call last):
+  File "<pyshell>", line 1, in <module>
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\base.py", line 668, in score
+    return accuracy_score(y, self.predict(X), sample_weight=sample_weight)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\tree\_classes.py", line 425, in predict
+    check_is_fitted(self)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\utils\validation.py", line 1390, in check_is_fitted
+    raise NotFittedError(msg % {"name": type(estimator).__name__})
+sklearn.exceptions.NotFittedError: This DecisionTreeClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+>>> print("Training Accuracy",dtc.score(d,ytrain))
+print("Testing Accuracy",dtc.score(e,ytest))
+print("Overall Accuracy:",dtc.score(sc_x.transform(x),y))
+Traceback (most recent call last):
+  File "<pyshell>", line 1, in <module>
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\base.py", line 668, in score
+    return accuracy_score(y, self.predict(X), sample_weight=sample_weight)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\tree\_classes.py", line 425, in predict
+    check_is_fitted(self)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\utils\validation.py", line 1390, in check_is_fitted
+    raise NotFittedError(msg % {"name": type(estimator).__name__})
+sklearn.exceptions.NotFittedError: This DecisionTreeClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+>>> print("Training Accuracy",dtc.score(d,ytrain))
+print("Testing Accuracy",dtc.score(e,ytest))
+print("Overall Accuracy:",dtc.score(sc_x.transform(x),y))
+Traceback (most recent call last):
+  File "<pyshell>", line 1, in <module>
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\base.py", line 668, in score
+    return accuracy_score(y, self.predict(X), sample_weight=sample_weight)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\tree\_classes.py", line 425, in predict
+    check_is_fitted(self)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\utils\validation.py", line 1390, in check_is_fitted
+    raise NotFittedError(msg % {"name": type(estimator).__name__})
+sklearn.exceptions.NotFittedError: This DecisionTreeClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+>>> y_pred=dtc.predict(e)
+y_pred
+Traceback (most recent call last):
+  File "<pyshell>", line 1, in <module>
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\tree\_classes.py", line 425, in predict
+    check_is_fitted(self)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\utils\validation.py", line 1390, in check_is_fitted
+    raise NotFittedError(msg % {"name": type(estimator).__name__})
+sklearn.exceptions.NotFittedError: This DecisionTreeClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+>>> from sklearn import tree
+plt.figure(figsize=(15,10))
+tree.plot_tree(dtc,filled=True)
+<Figure size 1500x1000 with 0 Axes>
+Traceback (most recent call last):
+  File "<pyshell>", line 3, in <module>
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\tree\_export.py", line 179, in plot_tree
+    check_is_fitted(decision_tree)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\utils\validation.py", line 1390, in check_is_fitted
+    raise NotFittedError(msg % {"name": type(estimator).__name__})
+sklearn.exceptions.NotFittedError: This DecisionTreeClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+>>> from sklearn.ensemble import RandomForestClassifier
+rfc = RandomForestClassifier()
+>>> print("Training Accuracy",rfc.score(d,ytrain))
+print("Testing Accuracy",rfc.score(e,ytest))
+print("Overall Accuracy:",rfc.score(sc_x.transform(x),y))
+Traceback (most recent call last):
+  File "<pyshell>", line 1, in <module>
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\base.py", line 668, in score
+    return accuracy_score(y, self.predict(X), sample_weight=sample_weight)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\ensemble\_forest.py", line 820, in predict
+    proba = self.predict_proba(X)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\ensemble\_forest.py", line 860, in predict_proba
+    check_is_fitted(self)
+  File "C:\Users\Akhil\AppData\Local\Programs\Thonny\lib\site-packages\sklearn\utils\validation.py", line 1390, in check_is_fitted
+    raise NotFittedError(msg % {"name": type(estimator).__name__})
+sklearn.exceptions.NotFittedError: This RandomForestClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+>>> from sklearn.metrics import accuracy_score
+accuracy_model = accuracy_score(y,model.predict(sc_x.transform(x)))
+print("Logistic regression:",accuracy_model)
+accuracy_nb = accuracy_score(y,nb.predict(sc_x.transform(x)))
+print("navie bayes;",accuracy_nb)
+accuracy_knn = accuracy_score(y,knn.predict(sc_x.transform(x)))
+print("KNN:",accuracy_knn)
+accuracy_SVM = accuracy_score(y,SVM.predict(sc_x.transform(x)))
+print("Support vector machine:",accuracy_SVM)
+Logistic regression: 0.9673590504451038
+navie bayes; 0.8308605341246291
+KNN: 0.7566765578635015
+Support vector machine: 0.9495548961424333
+>>> import matplotlib.pyplot as plt
+
+fig = plt.figure()
+
+ax = fig.add_axes([0,0,1,1])
+
+algo = ['logistic reg','Naive bayes','knn clf','SVM']
+
+accuracy = [accuracy_model*100,accuracy_nb*100,accuracy_knn*100,accuracy_SVM*100]
+
+ax.bar(algo[0],accuracy[0],color = 'b')
+
+ax.bar(algo[1],accuracy[1],color = 'y')
+
+ax.bar(algo[2],accuracy[2],color = 'pink')
+
+
+ax.bar(algo[3],accuracy[3],color = 'green')
+
+plt.xlabel('Classifiers------------>')
+
+plt.ylabel('Accuracies------------->')
+
+plt.title('ACCURACIES RESULTED')
+
+plt.show()
+<BarContainer object of 1 artists>
+<BarContainer object of 1 artists>
+<BarContainer object of 1 artists>
+<BarContainer object of 1 artists>
+Text(0.5, 0, 'Classifiers------------>')
+Text(0, 0.5, 'Accuracies------------->')
+Text(0.5, 1.0, 'ACCURACIES RESULTED')
+>>> 
